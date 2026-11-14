@@ -1,0 +1,11 @@
+<div class="mini-details-content">
+    <img class="img-fluid" src="${product.images.medium[0].url}" alt="${product.productName}" />
+    <h2>${product.productName}</h2>
+    <isset name="price" value="${product.price}" scope="page" />
+    <isinclude template="/product/components/pricing/main" />
+    <div class="ratings">
+        <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
+        <isinclude template="/product/components/ratings" />
+    </div>
+    <a class="btn btn-primary" href="${pdict.productUrl}">${Resource.msg('link.minidetails.full', 'product', null)}</a>
+</div>

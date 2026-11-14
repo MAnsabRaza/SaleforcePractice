@@ -1,0 +1,25 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.product-tile .tile-body .pdp-link {
+    line-height: $line-height-base;
+    min-height: $line-height-base * 2em;
+
+    .link {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .product-tile .tile-body .pdp-link {
+        min-height: $line-height-base * 3em;
+
+        .link {
+            -webkit-line-clamp: 3;
+        }
+    }
+}

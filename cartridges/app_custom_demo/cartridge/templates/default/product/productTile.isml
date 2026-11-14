@@ -1,0 +1,32 @@
+<div class="product-tile">
+    <!-- dwMarker="product" dwContentID="${product.uuid}" -->
+    <isinclude template="product/components/productTileImage" />
+    <div class="tile-body">
+        <isif condition="${pdict.display.swatches !== false}">
+            <isinclude template="product/components/productTileSwatch" />
+        </isif>
+
+        <isinclude template="product/components/productTileName" />
+
+        <isset name="price" value="${product.price}" scope="page" />
+        <isif condition="${product.productType === 'set'}">
+            <isinclude template="product/components/pricing/setPrice" />
+        <iselse>
+            <isinclude template="product/components/pricing/main" />
+        </isif>
+
+        <button type="button" class="btn btn-outline-primary mini-details"
+                data-url="${URLUtils.url('Product-MiniDetails', 'pid', product.id)}"
+                data-loading-text="${Resource.msg('label.minidetails.loading', 'product', null)}"
+                data-not-found-text="${Resource.msg('label.minidetails.notfound', 'product', null)}"
+                data-error-text="${Resource.msg('label.minidetails.error', 'product', null)}"
+                data-confirmation-text="${Resource.msg('label.minidetails.loaded', 'product', null)}">
+            ${Resource.msg('button.minidetails', 'product', null)}
+        </button>
+
+        <isif condition="${pdict.display.ratings !== false}">
+            <isinclude template="product/productTileFooter" />
+        </isif>
+    </div>
+    <!-- END_dwmarker -->
+</div>
